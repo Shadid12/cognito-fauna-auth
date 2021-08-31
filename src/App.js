@@ -17,6 +17,12 @@ function App() {
       'pigis34147@macauvpn.com'
     );
     console.log('user', user);
+
+    if (user.challengeName === 'CUSTOM_CHALLENGE') {
+      // to send the answer of the custom challenge
+      const resp = await Auth.sendCustomChallengeAnswer(user, 'You Passed');
+      console.log('resp', resp);
+    }
   }
 
   const logoutHere = async () => {

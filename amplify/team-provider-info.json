@@ -12,26 +12,10 @@
       "AmplifyAppId": "d3ixf794eo6kwu"
     },
     "categories": {
-      "auth": {
-        "newcognitoapp76f1c68f": {}
-      },
       "function": {
         "postAuthHookFn": {
           "deploymentBucketName": "amplify-newcognitoapp-dev-185727-deployment",
           "s3Key": "amplify-builds/postAuthHookFn-74624641483542793343-build.zip"
-        },
-        "newcognitoapp76f1c68fCreateAuthChallenge": {
-          "CHALLENGEANSWER": "",
-          "deploymentBucketName": "amplify-newcognitoapp-dev-185727-deployment",
-          "s3Key": "amplify-builds/newcognitoapp76f1c68fCreateAuthChallenge-736f422f34544853336c-build.zip"
-        },
-        "newcognitoapp76f1c68fDefineAuthChallenge": {
-          "deploymentBucketName": "amplify-newcognitoapp-dev-185727-deployment",
-          "s3Key": "amplify-builds/newcognitoapp76f1c68fDefineAuthChallenge-48724e76666a64645057-build.zip"
-        },
-        "newcognitoapp76f1c68fVerifyAuthChallengeResponse": {
-          "deploymentBucketName": "amplify-newcognitoapp-dev-185727-deployment",
-          "s3Key": "amplify-builds/newcognitoapp76f1c68fVerifyAuthChallengeResponse-7869676573534371704f-build.zip"
         }
       }
     }
