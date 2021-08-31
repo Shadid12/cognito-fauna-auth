@@ -21,7 +21,7 @@
         "email"
     ],
     "userpoolClientGenerateSecret": false,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "1",
     "userpoolClientWriteAttributes": [
         "email"
     ],
@@ -45,12 +45,52 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "usernameAttributes": [
         "email"
     ],
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "newcognitoapp76f1c68fCreateAuthChallenge",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "newcognitoapp76f1c68fDefineAuthChallenge",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "newcognitoapp76f1c68fVerifyAuthChallengeResponse",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{\n  \"CreateAuthChallenge\": [\n    \"boilerplate-create-challenge\"\n  ],\n  \"DefineAuthChallenge\": [\n    \"boilerplate-define-challenge\"\n  ],\n  \"VerifyAuthChallengeResponse\": [\n    \"boilerplate-verify\"\n  ]\n}",
+    "hostedUI": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"CreateAuthChallenge\",\n    \"lambdaFunctionName\": \"newcognitoapp76f1c68fCreateAuthChallenge\"\n  },\n  {\n    \"triggerType\": \"DefineAuthChallenge\",\n    \"lambdaFunctionName\": \"newcognitoapp76f1c68fDefineAuthChallenge\"\n  },\n  {\n    \"triggerType\": \"VerifyAuthChallengeResponse\",\n    \"lambdaFunctionName\": \"newcognitoapp76f1c68fVerifyAuthChallengeResponse\"\n  }\n]",
+    "breakCircularDependency": true,
+    "permissions": [],
+    "authProviders": []
 }

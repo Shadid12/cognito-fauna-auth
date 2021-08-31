@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-verify"
+  ],
+  "parentResource": "newcognitoapp76f1c68f",
+  "functionName": "newcognitoapp76f1c68fVerifyAuthChallengeResponse",
+  "resourceName": "newcognitoapp76f1c68fVerifyAuthChallengeResponse",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/Users/shaque/.nvm/versions/node/v14.15.4/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/VerifyAuthChallengeResponse",
+  "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+  "triggerEventPath": "VerifyAuthChallengeResponse.event.json",
+  "roleName": "newcognitoapp76f1c68fVerifyAuthChallengeResponse",
+  "skipEdit": true,
+  "enableCors": false
+}

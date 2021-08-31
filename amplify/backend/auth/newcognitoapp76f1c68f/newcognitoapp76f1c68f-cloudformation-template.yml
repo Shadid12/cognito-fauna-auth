@@ -9,6 +9,38 @@ Parameters:
     Type: String
 
   
+  
+  
+  functionnewcognitoapp76f1c68fCreateAuthChallengeArn:
+    Type: String
+    Default: functionnewcognitoapp76f1c68fCreateAuthChallengeArn
+  
+  functionnewcognitoapp76f1c68fCreateAuthChallengeName:
+    Type: String
+    Default: functionnewcognitoapp76f1c68fCreateAuthChallengeName
+  
+  
+  
+  functionnewcognitoapp76f1c68fDefineAuthChallengeArn:
+    Type: String
+    Default: functionnewcognitoapp76f1c68fDefineAuthChallengeArn
+  
+  functionnewcognitoapp76f1c68fDefineAuthChallengeName:
+    Type: String
+    Default: functionnewcognitoapp76f1c68fDefineAuthChallengeName
+  
+  
+  
+  functionnewcognitoapp76f1c68fVerifyAuthChallengeResponseArn:
+    Type: String
+    Default: functionnewcognitoapp76f1c68fVerifyAuthChallengeResponseArn
+  
+  functionnewcognitoapp76f1c68fVerifyAuthChallengeResponseName:
+    Type: String
+    Default: functionnewcognitoapp76f1c68fVerifyAuthChallengeResponseName
+  
+  
+  
 
     
   identityPoolName:
@@ -75,10 +107,10 @@ Parameters:
   userpoolClientGenerateSecret:
     Type: String
             
-    
   userpoolClientRefreshTokenValidity:
-    Type: Number
-          
+    Type: String
+  
+            
         
   userpoolClientWriteAttributes:
     Type: CommaDelimitedList
@@ -121,7 +153,6 @@ Parameters:
   userPoolGroupList:
     Type: CommaDelimitedList
       
-            
   serviceName:
     Type: String
   
@@ -132,6 +163,47 @@ Parameters:
             
         
   dependsOn:
+    Type: CommaDelimitedList
+      
+  
+  thirdPartyAuth:
+    Type: String
+            
+  
+  userPoolGroups:
+    Type: String
+            
+  
+  adminQueries:
+    Type: String
+            
+  triggers:
+    Type: String
+  
+            
+  
+  hostedUI:
+    Type: String
+            
+            
+      
+  parentStack:
+    Type: String
+        
+  authTriggerConnections:
+    Type: String
+  
+            
+  
+  breakCircularDependency:
+    Type: String
+            
+        
+  permissions:
+    Type: CommaDelimitedList
+      
+        
+  authProviders:
     Type: CommaDelimitedList
       
 Conditions:
