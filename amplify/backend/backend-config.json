@@ -1,5 +1,12 @@
 {
-  "auth": {},
+  "auth": {
+    "newcognitoappe7bc49a0": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
   "function": {
     "postAuthHookFn": {
       "build": true,

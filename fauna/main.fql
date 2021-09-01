@@ -1,0 +1,46 @@
+// Creeate Database 
+CreateDatabase({name: 'test-auth'})
+
+// Create a key for aws
+fnAESAF_-OACRB4X2lrLe9f859FpjjXfafQkVL1B
+
+// admin key
+fnAESAq3T9ACQxiB2SkRhvyjTdADqcbuUcGlgCzH
+
+// Create accounts Collection
+CreateCollection({ name: 'accounts' })
+
+
+// Create an index to get Accounts by Index
+CreateIndex({
+  name: 'accounts_by_email',
+  source: Collection('accounts'),
+  // We will search on email
+  terms: [
+    {
+      field: ['data', 'email']
+    }
+  ],
+  unique: true,
+  serialized: true
+})
+
+// Create a Role With Predicate
+CreateRole({
+    name: 'loggedin',
+    privileges: [
+        {
+            resource: Collection('accounts'),
+            actions: { read: true, history_read: true },
+        },
+    ],
+    membership: [
+        {
+            resource: Collection('accounts'),
+            predicate: Query(
+                Lambda(
+                    ref => Equals(Select(['data', 'type'], Get(CurrentToken()), false), 'access'))
+                )
+        },
+    ]
+})
