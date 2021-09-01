@@ -1,9 +1,50 @@
+const {
+    registerUser,
+    createAccessToken,
+    createRefreshToken,
+    getUserByEmail
+} = require('users')
 
-
-exports.handler = async (event) => {
-    const response = {
-        statusCode: 200,
-        body: JSON.stringify('Hello from Lambda!'),
+exports.handler = async (event, context) => {
+    
+    const email = event.request.userAttributes['email'];
+    console.log('Email', email);
+    
+    let userId;
+    let fauna_refresh_token;
+    let fauna_access_token;
+    
+    try {
+        const foundUser = await getUserByEmail(email);
+        userId = foundUser.ref.id;
+        
+    } catch (e) {
+        console.log('Error: %s', e);
+        const newUser = await registerUser(email);
+        userId = newUser.ref.id;
+    }
+    
+    try {
+        const faunaRefreshToken = await createRefreshToken(userId, 3600);
+        fauna_refresh_token = faunaRefreshToken.secret;
+        console.log('___>>>', userId);
+        console.log('fauna_refresh_token', fauna_refresh_token);
+        const rret = await createAccessToken(userId, fauna_refresh_token, 600);
+        fauna_access_token = rret.secret;
+        console.log('rret ==>>s', rret.secret);
+    } catch (e) {
+        console.log('Token Generation Error: %s', e);
+    }
+  
+    event.response = {
+        "claimsOverrideDetails": {
+            "claimsToAddOrOverride": {
+                fauna_access_token,
+                fauna_refresh_token,
+            },
+            "claimsToSuppress": ["email"]
+        }
     };
-    return response;
+    context.done(null, event);
+    return event;
 };

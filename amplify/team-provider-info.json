@@ -15,7 +15,7 @@
       "function": {
         "postAuthHookFn": {
           "deploymentBucketName": "amplify-newcognitoapp-dev-185727-deployment",
-          "s3Key": "amplify-builds/postAuthHookFn-74624641483542793343-build.zip"
+          "s3Key": "amplify-builds/postAuthHookFn-766b34784f616f53506a-build.zip"
         }
       },
       "auth": {

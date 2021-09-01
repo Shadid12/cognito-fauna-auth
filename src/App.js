@@ -8,21 +8,16 @@ Amplify.configure(awsconfig);
 
 
 function App() {
-  Auth.configure({
-    authenticationFlowType: 'CUSTOM_AUTH'
-  });
+  // Auth.configure({
+  //   authenticationFlowType: 'CUSTOM_AUTH'
+  // });
   const loginHere = async () => {
     const user = await Auth.signIn(
-      'pigis34147@macauvpn.com', 
+      'shadid', 
       'pigis34147@macauvpn.com'
     );
-    console.log('user', user);
-
-    if (user.challengeName === 'CUSTOM_CHALLENGE') {
-      // to send the answer of the custom challenge
-      const resp = await Auth.sendCustomChallengeAnswer(user, 'You Passed');
-      console.log('resp', resp);
-    }
+    const ss = await Auth.userSession(user);
+    console.log('user', ss.getIdToken());
   }
 
   const logoutHere = async () => {
